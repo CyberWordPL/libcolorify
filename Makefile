@@ -12,6 +12,10 @@ build:
 	gcc $(CFLAGS) -fpic $(CPPFLAGS) -c libcolorify.c -o libcolorify.o
 	gcc -shared -o libcolorify.so libcolorify.o
 
+build-static:
+	gcc $(CFLAGS) -fpic $(CPPFLAGS) -c libcolorify.c -o libcolorify.o
+	ar rcs libcolorify.a libcolorify.o
+
 install:
 	mkdir -p /usr/include/libcolorify
 	cp libcolorify.h /usr/include/libcolorify/libcolorify.h
